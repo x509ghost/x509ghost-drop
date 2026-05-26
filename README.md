@@ -5,7 +5,7 @@
 > All content is fictional. No real attack is planned or underway.
 > This scenario was created for training purposes only. - ENJOY
 >
-> ----------------------------------------------------------------------------
+> ----------------------SCENARIO BEGINS HERE-------------------------------------------
 
 > *You found it. Good. That means you are paying attention.*
 > *Most do not.*
