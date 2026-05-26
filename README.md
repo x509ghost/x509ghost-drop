@@ -1,7 +1,7 @@
 # x509-drop
 
 > ⚠️ **DISCLAIMER — EXERCISE SCENARIO**
-> This repository is part of the **cybersecurity exercise**.
+> This repository is part of the **organization cybersecurity exercise**.
 > All content is fictional. No real attack is planned or underway.
 > This scenario was created for training purposes only. - ENJOY
 >
