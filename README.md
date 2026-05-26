@@ -1,24 +1,16 @@
 <details>
-<summary>⚠️ DISCLAIMER — Click to expand</summary>
+<summary>⚠️ DISCLAIMER — READ BEFORE CONTINUE</summary>
 
-This repository is part of the **CACE26 internal cybersecurity exercise**.
+This repository is part of the **organizational cybersecurity exercise**.
 All content, characters, threat actors, and scenarios described here are entirely fictional.
 No real attack is planned or underway against any Croatian website or infrastructure.
 This material was created solely for internal training and educational purposes.
-
-— CACE26 Exercise Coordination Team
 
 </details>
 
 
 # x509-drop
 
-> ⚠️ **DISCLAIMER — EXERCISE SCENARIO**
-> This repository is part of the **organization cybersecurity exercise**.
-> All content is fictional. No real attack is planned or underway.
-> This scenario was created for training purposes only. - ENJOY
->
-> ----------------------SCENARIO BEGINS HERE-------------------------------------------
 
 > *You found it. Good. That means you are paying attention.*
 > *Most do not.*
