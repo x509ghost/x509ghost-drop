@@ -82,3 +82,71 @@ Work as one.
 Tasks 1 through 4 are available now in the `/tasks` directory.
 Tasks 5, 6 and 7 will be released on my own schedule.
 Check back. Pull often.
+
+/tasks
+/task-01 ← available now
+/task-02 ← available now
+/task-03 ← available now
+/task-04 ← available now
+/task-05 ← not yet
+/task-06 ← not yet
+/task-07 ← not yet
+
+Each task folder contains a `brief.md` with everything you need to begin.
+Read carefully. The instructions contain more than instructions.
+
+---
+
+## How to submit
+
+After solving each task, you must send a report.
+Not a flag. A **report**.
+
+I want to know that you understood what you found — not just that you got lucky.
+
+Each submission must follow this exact format:
+
+Subject: CERT-RETALIATION | Task [N] 
+
+Investigator (So I Know Who To Target If I Get Mad):
+Task :
+Flag :
+Tools Used :
+Steps Taken : (3-5 sentences minimum)
+Time Spent :
+
+
+
+Incomplete submissions will be ignored.
+Flag-only submissions will be ignored.
+I have time. You do not.
+
+
+
+The address?  I seasoned this one differently.
+Not with a number — with a word.
+The kind of word that lingers, like VINEGAR.
+Five letters. You already know it.
+
+`IbglhsHquxyzQwkzptavgawggKuhame26@wfgmuu.aw`
+
+
+
+Decode it. Send your reports there.
+
+---
+
+## The clock
+
+⏳ [View the countdown](./countdown/index.html)
+
+*June 11, 2026. 12:00:00 noon CEST.*
+*That is when patience ends.*
+
+---
+
+*— x509ghost*
+
+> *P.S. — If you are reading this alone, good luck.*
+> *If you are sharing this with your entire department,*
+> *you already made your first mistake.*
