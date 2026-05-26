@@ -63,7 +63,8 @@ I enjoy this more than the attack itself.
 
 I am watching the investigation.
 
-If I detect that too many people are involved in solving these tasks simultaneously,
+If I detect that more than 5 different emails  communicating with me, I will now there are involved
+in solving these tasks simultaneously, I will know that too many people are involved.
 I will interpret it as an escalation and move the timeline forward without warning.
 
 **One contact per 10 investigators. No more than 8 submission emails total.**
