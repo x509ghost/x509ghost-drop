@@ -8,7 +8,7 @@ You have intercepted an image. It appears to be just an ornate mirror — but so
 
 Look closer. The mirror is not showing you the truth.
 
-**File:** `mirror_task02.jpg`
+**Target File(https://x509ghost.github.io/x509ghost-drop/declassified/toprettytocare.png)**
 
 ---
 
