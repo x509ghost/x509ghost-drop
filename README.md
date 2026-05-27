@@ -84,14 +84,13 @@ Tasks 1 through 4 are available now in the `/tasks` directory.
 Tasks 5, 6 and 7 will be released on my own schedule.
 Check back. Pull often.
 
-/tasks
-/task-01 ← available now
-/task-02 ← available now
-/task-03 ← available now
-/task-04 ← available now
-/task-05 ← not yet
-/task-06 ← not yet
-/task-07 ← not yet
+- `/tasks/task-01` — ✅ available now
+- `/tasks/task-02` — ✅ available now
+- `/tasks/task-03` — ✅ available now
+- `/tasks/task-04` — ✅ available now
+- `/tasks/task-05` — 🔒 not yet
+- `/tasks/task-06` — 🔒 not yet
+- `/tasks/task-07` — 🔒 not yet
 
 Each task folder contains a `brief.md` with everything you need to begin.
 Read carefully. The instructions contain more than instructions.
