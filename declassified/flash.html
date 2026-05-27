@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: #000;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #hint {
+            position: fixed;
+            top: 18px;
+            right: 22px;
+            color: #1a1a1a;
+            font-family: 'Courier New', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.08rem;
+            line-height: 1.6;
+            text-align: right;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        #click-btn {
+            position: fixed;
+            display: none;
+            background: #ffffff;
+            color: #000000;
+            border: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            font-weight: bold;
+            letter-spacing: 0.15rem;
+            padding: 10px 20px;
+            cursor: pointer;
+            outline: none;
+            z-index: 999;
+            user-select: none;
+        }
+
+        #click-btn:hover {
+            background: #ffffff;
+        }
+
+        /* QR overlay — shown on successful click */
+        #qr-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background: rgba(0,0,0,0.92);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            z-index: 1000;
+        }
+
+        #qr-overlay img {
+            width: 280px;
+            height: 280px;
+            image-rendering: pixelated;
+            border: 6px solid #fff;
+        }
+
+        #qr-overlay p {
+            color: #ffffff;
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            margin-top: 18px;
+            letter-spacing: 0.1rem;
+            opacity: 0.6;
+        }
+
+        #close-btn {
+            margin-top: 16px;
+            background: transparent;
+            color: #555;
+            border: 1px solid #333;
+            font-family: 'Courier New', monospace;
+            font-size: 0.7rem;
+            padding: 6px 14px;
+            cursor: pointer;
+            letter-spacing: 0.1rem;
+        }
+
+        #close-btn:hover {
+            color: #fff;
+            border-color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="hint">
+        I am sensing the upcoming force<br>
+        that will bring us all<br>
+        into the Light.
+    </div>
+
+    <button id="click-btn">CLICK ME</button>
+
+    <div id="qr-overlay">
+        <img id="qr-img" src="" alt="" />
+        <p>scan to proceed</p>
+        <button id="close-btn" onclick="closeQR()">[ close ]</button>
+    </div>
+
+    <script>
+        var _k = "LIGHT";
+        var _e = [40, 40, 51, 41, 110, 37, 36, 38, 47, 49, 99, 57, 41, 47, 111, 46, 40, 52, 45, 98, 120, 101, 46, 30, 22, 3, 27, 48, 120, 31, 11, 46, 40, 9, 21, 13, 8, 9, 27, 1, 36, 12, 18, 47, 21, 13, 8, 34, 63, 21, 13, 8, 15, 59, 21, 29, 8, 6, 9, 21, 13, 125, 18, 41, 4, 2, 8, 6, 9, 16, 15, 28, 43, 13, 5, 26, 27, 115, 38, 27, 126, 45, 31, 17, 99, 46, 4, 6, 49, 17, 36, 121, 31, 46, 36, 30, 63, 44, 103, 39, 42, 2, 3, 43, 35, 24, 58, 6, 112, 63, 117, 44, 9, 59, 1, 45, 29, 63, 48, 32, 10, 127, 46, 15, 16, 36, 48, 23, 39, 51, 11, 127, 4, 18, 25, 25, 37, 112, 48, 50, 15, 10, 113, 41, 109, 20, 40, 14, 9, 96, 47, 44, 11, 13, 61, 30, 4, 41, 28, 36, 59, 125, 36, 45, 29, 4, 125, 9, 3, 39, 29, 32, 40, 9, 5, 7, 30, 23, 125, 127, 13, 125, 112, 43, 16, 26, 32, 21, 5, 123, 13, 26, 104, 37, 22, 63, 10, 117, 15, 28, 11, 122, 21, 50, 28, 46, 16, 15, 46, 14, 24, 29, 51, 49, 48, 41, 5, 2, 50, 108, 14, 126, 126, 14, 53, 30, 10, 47, 14, 22, 1, 17, 35, 124, 37, 25, 10, 63, 103, 54, 30, 13, 17, 49, 48, 3, 102, 2, 26, 55, 46, 46, 30, 30, 102, 59, 10, 17, 99, 27, 52, 45, 104, 26, 32, 20, 3, 119, 127, 108, 33, 102, 15, 46, 62, 124, 7, 9, 61, 21, 37, 8, 52, 47, 19, 13, 10, 52, 39, 57, 52, 127, 126, 7, 58, 28, 35, 112, 112, 49, 123, 51, 50, 99, 31, 25, 8, 12, 42, 2, 26, 1, 62, 16, 37, 4, 62, 118, 42, 49, 32, 51, 13, 123, 97, 2, 1, 23, 5, 109, 7, 31, 61, 12, 123, 99, 28, 61, 28, 16, 1, 51, 117, 125, 13, 103, 45, 108, 4, 12, 52, 10, 23, 7, 62, 117, 1, 37, 9, 26, 2, 3, 62, 2, 51, 7, 31, 8, 50, 60, 56, 98, 3, 59, 51, 53, 45, 8, 103, 23, 20, 42, 36, 50, 1, 117, 16, 48, 24, 13, 20, 42, 30, 59, 14, 45, 24, 50, 103, 14, 45, 123, 15, 58, 35, 122, 42, 34, 4, 34, 59, 37, 23, 42, 33, 11, 126, 63, 30, 4, 59, 14, 6, 0, 102, 38, 32, 29, 103, 5, 1, 102, 3, 125, 101, 8, 43, 2, 121, 108, 24, 13, 55, 44, 102, 24, 36, 112, 44, 62, 58, 11, 30, 112, 97, 62, 44, 126, 7, 1, 122, 47, 13, 127, 96, 126, 25, 52, 26, 97, 57, 27, 44, 25, 56, 45, 34, 50, 42, 28, 0, 40, 41, 3, 12, 99, 35, 14, 5, 58, 24, 63, 48, 18, 39, 126, 16, 37, 31, 63, 43, 47, 48, 123, 32, 25, 16, 118, 24, 49, 103, 7, 126, 13, 56, 38, 124, 116, 124, 32, 42, 12, 50, 121, 46, 58, 121, 46, 29, 103, 126, 36, 3, 127, 27, 39, 34, 35, 99, 62, 54, 49, 55, 46, 28, 124, 19, 0, 99, 60, 2, 13, 10, 26, 55, 22, 122, 45, 125, 59, 28, 0, 54, 124, 22, 121, 14, 108, 4, 24, 120, 37, 116, 42, 32, 5, 125, 62, 1, 22, 1, 125, 37, 30, 50, 3, 43, 15, 5, 13, 121, 125, 44, 62, 61, 124, 45, 9, 27, 38, 5, 6, 114, 42, 1, 35, 28, 61, 13, 21, 27, 37, 0, 122, 127, 3, 60, 42, 13, 38, 57, 6, 16, 18, 100, 120, 113, 33, 46, 62, 43, 124, 113, 46, 2, 20, 122, 36, 60, 102, 22, 28, 5, 50, 21, 32, 5, 29, 37, 38, 6, 5, 115, 124, 103, 38, 5, 61, 62, 2, 20, 44, 50, 112, 34, 57, 0, 51, 16, 99, 7, 35, 8, 126, 0, 126, 121, 13, 0, 103, 4, 62, 63, 1, 63, 99, 16, 118, 123, 54, 57, 3, 43, 31, 14, 10, 7, 43, 15, 44, 24, 34, 13, 41, 21, 125, 38, 49, 120, 44, 61, 49, 10, 38, 123, 34, 124, 127, 57, 31, 56, 60, 36, 122, 53, 53, 25, 6, 33, 54, 5, 31, 15, 24, 49, 125, 35, 46, 49, 127, 0, 126, 116, 39, 4, 30, 102, 127, 46, 49, 11, 125, 3, 113, 26, 63, 27, 104, 10, 36, 123, 40, 55, 32, 61, 124, 38, 43, 34, 29, 33, 14, 13, 39, 51, 61, 45, 52, 59, 48, 47, 120, 61, 49, 23, 9, 51, 45, 125, 96, 120, 58, 19, 103, 35, 123, 3, 104, 123, 32, 58, 35, 17, 29, 45, 62, 26, 116, 58, 25, 26, 125, 15, 125, 60, 32, 113, 35, 123, 49, 126, 17, 23, 38, 50, 37, 120, 127, 26, 99, 34, 8, 108, 16, 22, 56, 51, 23, 63, 98, 58, 45, 104, 123, 100, 38, 98, 108, 45, 14, 34, 48, 34, 99, 25, 38, 126, 119, 37, 16, 125, 28, 31, 43, 55, 3, 39, 3, 14, 62, 8, 112, 112, 12, 17, 32, 113, 33, 0, 101, 117, 24, 114, 35, 96, 57, 12, 43, 123, 17, 5, 32, 14, 123, 108, 122, 98, 34, 57, 96, 116, 121, 104, 38, 19, 62, 12, 62, 44, 127, 13, 37, 114, 126, 63, 13, 112, 49, 26, 46, 24, 26, 63, 99, 27, 14, 3, 38, 61, 100, 124, 113, 23, 47, 58, 127, 1, 48, 48, 29, 39, 102, 30, 46, 101, 40, 1, 104, 121, 32, 2, 57, 41, 15, 25, 45, 10, 126, 62, 37, 103, 31, 55, 41, 62, 34, 32, 33, 112, 108, 58, 13, 104, 123, 38, 41, 5, 63, 24, 97, 30, 4, 43, 57, 61, 39, 61, 50, 58, 2, 52, 49, 119, 112, 55, 41, 5, 104, 59, 61, 99, 44, 30, 113, 14, 53, 6, 11, 60, 103, 4, 30, 5, 39, 34, 6, 29, 115, 26, 2, 38, 127, 116, 1, 56, 42, 12, 114, 99, 50, 122, 27, 112, 42, 31, 41, 47, 46, 42, 25, 99, 16, 34, 0, 102, 27, 44, 21, 62, 61, 61, 98, 10, 41, 53, 22, 63, 117, 14, 13, 37, 34, 61, 28, 7, 117, 36, 3, 112, 19, 54, 59, 48, 6, 108, 27, 17, 63, 112, 13, 46, 121, 34, 45, 4, 99, 28, 4, 6, 27, 34, 13, 47, 48, 96, 63, 26, 13, 13, 45, 40, 6, 104, 13, 46, 116, 13, 62, 33, 28, 36, 10, 40, 0, 61, 38, 11, 30, 9, 21, 13, 8, 6, 13, 56, 10, 29, 44, 27, 33, 29, 36, 4, 11];
+
+        function _decode() {
+            return _e.map(function(b, i) {
+                return String.fromCharCode(b ^ _k.charCodeAt(i % _k.length));
+            }).join('');
+        }
+
+        var btn = document.getElementById('click-btn');
+        var overlay = document.getElementById('qr-overlay');
+        var qrImg = document.getElementById('qr-img');
+        var clickTimer = null;
+        var hideTimer = null;
+
+        function randomPos() {
+            var bw = 120, bh = 42;
+            var x = Math.floor(Math.random() * (window.innerWidth  - bw));
+            var y = Math.floor(Math.random() * (window.innerHeight - bh));
+            return { x: x, y: y };
+        }
+
+        function showButton() {
+            if (overlay.style.display === 'flex') {
+                scheduleNext();
+                return;
+            }
+            var pos = randomPos();
+            btn.style.left = pos.x + 'px';
+            btn.style.top  = pos.y + 'px';
+            btn.style.display = 'block';
+
+            hideTimer = setTimeout(function() {
+                btn.style.display = 'none';
+                scheduleNext();
+            }, 16);
+        }
+
+        function scheduleNext() {
+            clearTimeout(clickTimer);
+            clickTimer = setTimeout(showButton, 1000);
+        }
+
+        btn.addEventListener('click', function() {
+            clearTimeout(hideTimer);
+            clearTimeout(clickTimer);
+            btn.style.display = 'none';
+            qrImg.src = _decode();
+            overlay.style.display = 'flex';
+        });
+
+        function closeQR() {
+            overlay.style.display = 'none';
+            qrImg.src = '';
+            scheduleNext();
+        }
+
+        // Start first appearance after 2s
+        clickTimer = setTimeout(showButton, 2000);
+    </script>
+</body>
+</html>
