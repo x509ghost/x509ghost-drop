@@ -149,5 +149,5 @@ Decode it. Send your reports there.
 *— x509ghost*
 
 > *P.S. — If you are reading this alone, good luck.*
-> *If you are sharing this with your entire department,*
+> *If you are sharing this with anybody else outside your team,*
 > *you already made your first mistake.*
