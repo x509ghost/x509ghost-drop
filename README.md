@@ -139,7 +139,7 @@ Decode it. Send your reports there.
 
 ## The clock
 
-⏳ [View the countdown](./countdown/index.html)
+⏳ [View the countdown](./countdown/muahaha.html)
 
 *June 11, 2026. 12:00:00 noon CEST.*
 *That is when patience ends.*
