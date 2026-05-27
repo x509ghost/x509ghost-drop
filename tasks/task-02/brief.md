@@ -28,34 +28,5 @@ Extract the hidden flag from the mirror image.
 
 > *What goes forward must also go back.*
 
----
 
-## Solve Path
-
-This task has four steps. Each step unlocks the next.
-
-1. **The image is wrong** — a mirror shows things flipped. Fix it.
-2. **Read what is written** — extract the symbols hidden inside the mirror.
-3. **The symbols are not what they seem** — map them to binary.
-4. **The binary gives you a string** — but the string is not the flag yet.
-
----
-
-## Scoring
-
-| Criteria | Points |
-|---|---|
-| Flag submitted correctly | 100 pts |
-| Solve script / methodology documented | +25 pts bonus |
-
----
-
-## Tools suggested
-
-- Python (`Pillow`, `base64`)
-- Any image viewer / editor
-- CyberChef
-
----
-
-*GHOST Exercise — Blue Team Challenge Series*
+*-x509gost*
