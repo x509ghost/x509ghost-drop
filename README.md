@@ -106,14 +106,15 @@ I want to know that you understood what you found — not just that you got luck
 
 Each submission must follow this exact format:
 
-Subject: CERT-RETALIATION | Task [N] 
+**Subject:** `CERT-RETALIATION | Task [N] | [Investigator Name]`
 
-Investigator (So I Know Who To Target If I Get Mad):
-Task :
-Flag :
-Tools Used :
-Steps Taken : (3-5 sentences minimum)
-Time Spent :
+**Body:**
+- **Investigator** *(so I know who to target if I get mad)*:
+- **Task**:
+- **Flag**:
+- **Tools Used**:
+- **Steps Taken** *(3-5 sentences minimum)*:
+- **Time Spent**:
 
 
 
