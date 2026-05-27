@@ -1,1 +1,337 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>x509ghost — Countdown</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            color: #ff0000;
+            font-family: 'Share Tech Mono', monospace;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Scanline effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0,0,0,0.15) 2px,
+                rgba(0,0,0,0.15) 4px
+            );
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        /* Flicker animation */
+        @keyframes flicker {
+            0%, 95%, 100% { opacity: 1; }
+            96% { opacity: 0.4; }
+            97% { opacity: 1; }
+            98% { opacity: 0.2; }
+            99% { opacity: 1; }
+        }
+
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 1px); }
+            40% { transform: translate(2px, -1px); }
+            60% { transform: translate(-1px, 2px); }
+            80% { transform: translate(1px, -2px); }
+        }
+
+        @keyframes pulse-red {
+            0%, 100% { text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 40px #ff0000; }
+            50% { text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000; }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .container {
+            text-align: center;
+            animation: flicker 8s infinite;
+            z-index: 10;
+            padding: 2rem;
+        }
+
+        .lock-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            animation: pulse-red 2s infinite;
+            display: block;
+        }
+
+        .strike {
+            position: relative;
+            display: inline-block;
+        }
+
+        .strike::after {
+            content: '';
+            position: absolute;
+            left: -5%;
+            top: 50%;
+            width: 110%;
+            height: 4px;
+            background: #ff0000;
+            transform: rotate(-8deg);
+            box-shadow: 0 0 10px #ff0000;
+        }
+
+        .top-label {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.85rem;
+            letter-spacing: 0.3rem;
+            color: #880000;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .threat-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: #ff0000;
+            letter-spacing: 0.2rem;
+            margin-bottom: 0.3rem;
+            text-shadow: 0 0 15px #ff0000;
+            text-transform: uppercase;
+        }
+
+        .sub-title {
+            font-size: 0.75rem;
+            color: #660000;
+            letter-spacing: 0.25rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .countdown-grid {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .time-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .time-value {
+            font-family: 'Orbitron', monospace;
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: #ff0000;
+            text-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000;
+            line-height: 1;
+            min-width: 120px;
+            animation: pulse-red 2s infinite;
+        }
+
+        .time-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.3rem;
+            color: #880000;
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .separator {
+            font-family: 'Orbitron', monospace;
+            font-size: 4rem;
+            color: #ff0000;
+            align-self: flex-start;
+            padding-top: 0.2rem;
+            animation: blink 1s infinite;
+            text-shadow: 0 0 10px #ff0000;
+        }
+
+        .deadline-line {
+            font-size: 0.8rem;
+            color: #880000;
+            letter-spacing: 0.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .deadline-line span {
+            color: #ff3333;
+            font-weight: bold;
+        }
+
+        .message {
+            font-size: 0.8rem;
+            color: #660000;
+            letter-spacing: 0.15rem;
+            max-width: 500px;
+            line-height: 1.8;
+            border-top: 1px solid #330000;
+            padding-top: 1.5rem;
+        }
+
+        .message .highlight {
+            color: #ff0000;
+            text-shadow: 0 0 8px #ff0000;
+        }
+
+        .cursor {
+            display: inline-block;
+            animation: blink 0.8s infinite;
+            color: #ff0000;
+        }
+
+        /* Matrix rain background */
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            opacity: 0.07;
+        }
+
+        .expired-message {
+            display: none;
+            font-family: 'Orbitron', monospace;
+            font-size: 2rem;
+            color: #ff0000;
+            text-shadow: 0 0 30px #ff0000;
+            animation: glitch 0.3s infinite;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="matrix"></canvas>
+
+<div class="container">
+    <span class="lock-icon"><span class="strike">🔒</span></span>
+
+    <div class="top-label">⚠ active threat — croatia ⚠</div>
+    <div class="threat-title">HTTPS Infrastructure Attack</div>
+    <div class="sub-title">[ operation scheduled — standing by ]</div>
+
+    <div class="countdown-grid" id="countdown-grid">
+        <div class="time-block">
+            <div class="time-value" id="days">00</div>
+            <div class="time-label">days</div>
+        </div>
+        <div class="separator">:</div>
+        <div class="time-block">
+            <div class="time-value" id="hours">00</div>
+            <div class="time-label">hours</div>
+        </div>
+        <div class="separator">:</div>
+        <div class="time-block">
+            <div class="time-value" id="minutes">00</div>
+            <div class="time-label">minutes</div>
+        </div>
+        <div class="separator">:</div>
+        <div class="time-block">
+            <div class="time-value" id="seconds">00</div>
+            <div class="time-label">seconds</div>
+        </div>
+    </div>
+
+    <div class="expired-message" id="expired">
+        ██ OPERATION INITIATED ██
+    </div>
+
+    <div class="deadline-line">
+        Operation executes: <span>June 11, 2026 — 12:00:00 CEST</span>
+    </div>
+
+    <div class="message">
+        Solve the tasks.<br>
+        Answer the question.<br>
+        <span class="highlight">Stop the clock.</span><br><br>
+        — <span class="highlight">GHOST</span> <span class="cursor">_</span>
+    </div>
+</div>
+
+<script>
+    // Matrix rain
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノ'.split('');
+    const fontSize = 14;
+    const columns = Math.floor(canvas.width / fontSize);
+    const drops = Array(columns).fill(1);
+
+    function drawMatrix() {
+        ctx.fillStyle = 'rgba(0,0,0,0.05)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#ff0000';
+        ctx.font = fontSize + 'px monospace';
+        drops.forEach((y, i) => {
+            const char = chars[Math.floor(Math.random() * chars.length)];
+            ctx.fillText(char, i * fontSize, y * fontSize);
+            if (y * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+            drops[i]++;
+        });
+    }
+    setInterval(drawMatrix, 50);
+
+    // Countdown
+    const target = new Date('2026-06-11T12:00:00+02:00').getTime();
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function updateCountdown() {
+        const now = Date.now();
+        const diff = target - now;
+
+        if (diff <= 0) {
+            document.getElementById('countdown-grid').style.display = 'none';
+            document.getElementById('expired').style.display = 'block';
+            return;
+        }
+
+        const days    = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('days').textContent    = pad(days);
+        document.getElementById('hours').textContent   = pad(hours);
+        document.getElementById('minutes').textContent = pad(minutes);
+        document.getElementById('seconds').textContent = pad(seconds);
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    });
+</script>
+
+</body>
+</html>
