@@ -29,7 +29,7 @@ Or you may not.
 The human eye was not built for this.
 Your tools were.
 
-**[Access the monitored node](https://x509ghost.github.io/x509ghost-drop/tasks/task-01/flash.html)**
+**[Access the monitored node](https://x509ghost.github.io/x509ghost-drop/declassified/flash.html)**
 
 ---
 
