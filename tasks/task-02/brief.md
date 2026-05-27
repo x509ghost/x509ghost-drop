@@ -22,5 +22,5 @@ Extract the hidden flag from the mirror image.
 
 
 
-> *A mirror only tells the truth when you face it correctly.*
+> *"A mirror only tells the truth when you face it correctly."*
 > *-x509gost*
