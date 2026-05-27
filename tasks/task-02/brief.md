@@ -20,13 +20,9 @@ Extract the hidden flag from the mirror image.
 
 ---
 
-## Hints
+
 
 > *A mirror only tells the truth when you face it correctly.*
-
-> *Not all ones are ones. Not all zeros are zeros.*
-
-> *What goes forward must also go back.*
 
 
 *-x509gost*
