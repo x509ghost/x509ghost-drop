@@ -12,14 +12,6 @@ Look closer. The mirror is not showing you the truth.
 
 ---
 
-## Objectives
-
-Extract the hidden flag from the mirror image.
-
-**Flag format:** `GHOSTTASK2{...}`
-
----
-
 
 
 > *"A mirror only tells the truth when you face it correctly."*
