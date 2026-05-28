@@ -11,12 +11,8 @@ Your job is to find the passphrase — and what lies behind it.
 
 **[Ghost file](https://x509ghost.github.io/x509ghost-drop/declassified/ghost.exe)**
 
----
 
-## Objectives
-
-Reverse engineer the binary and extract the hidden flag.
 
 ---
 
-*The GHOST speaks in code — not in words*
+> *The GHOST speaks in code — not in words*
