@@ -19,7 +19,7 @@ It is fast. It is deliberate. And it is meant to go unnoticed.
 
 ---
 
-## Your Objective
+## Objective
 
 Access the monitored display node below.
 
@@ -37,23 +37,6 @@ Your tools were.
 
 A string. One line. Center screen.
 It will not wait for you.
-
----
-
-## Submission
-
-Once you have captured the string, submit your report to the address
-you decoded from the main page.
-
-Use the standard format:
-- **Investigator**:
-- **Task**: 01
-- **Flag**:
-- **Tools Used**:
-- **Steps Taken** *(3-5 sentences minimum)*:
-- **Time Spent**:
-
-Subject line: `CERT-RETALIATION | Task 01 | [Investigator Name]`
 
 ---
 
