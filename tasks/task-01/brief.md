@@ -17,26 +17,10 @@ Our automated sensors disagree.
 Something is being transmitted.
 It is fast. It is deliberate. And it is meant to go unnoticed.
 
----
-
-## Objective
-
-Access the monitored display node below.
-
-Observe it long enough and you may see something.
-Or you may not.
-
 The human eye was not built for this.
 Your tools were.
 
 **[Access the monitored node](https://x509ghost.github.io/x509ghost-drop/declassified/flash.html)**
-
----
-
-## What You Are Looking For
-
-A string. One line. Center screen.
-It will not wait for you.
 
 ---
 
