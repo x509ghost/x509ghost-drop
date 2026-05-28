@@ -9,7 +9,7 @@ tool left behind by the threat actor. Running it prompts for a passphrase.
 
 Your job is to find the passphrase — and what lies behind it.
 
-**File:** `ghost.exe`
+**[Ghost file](https://x509ghost.github.io/x509ghost-drop/declassified/ghost.exe)**
 
 ---
 
