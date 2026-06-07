@@ -8,6 +8,8 @@ But the pieces aren't readable as-is. GHOST made sure of that.  Only way to deco
 
 Once all  pieces are decoded and COMBINED, use it to brute force what ever needs to be brute forced in this task to unlock next one.
 
+**[Ghost relics](https://x509ghost.github.io/x509ghost-drop/declassified/tryme.jpg)**
+
 📂 The file is in the task-5/ folder.
 🔍 Look closer than you think you need to.
 🔐 The last flag unlocks decoded strings.
