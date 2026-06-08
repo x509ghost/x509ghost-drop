@@ -88,7 +88,7 @@ Check back. Pull often.
 - `/tasks/task-02` — ✅ available now
 - `/tasks/task-03` — ✅ available now
 - `/tasks/task-04` — ✅ available now
-- `/tasks/task-05` — 🔒 not yet
+- `/tasks/task-05` — ✅ available now
 - `/tasks/task-06` — 🔒 not yet
 - `/tasks/task-07` — 🔒 not yet
 
