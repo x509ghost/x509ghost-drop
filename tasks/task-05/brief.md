@@ -12,5 +12,5 @@ Once all  pieces are decoded and COMBINED, use it to brute force what ever needs
 
 📂 The file is in the task-5/ folder.
 🔍 Look closer than you think you need to.
-🔐 The last flag unlocks decoded strings.
+🔐 The last flag unlocks decoded strings with X OR with...
 👻 Stuck? Ask the Ghost.
