@@ -10,10 +10,12 @@ To find him, you must first listen. Not all signals announce themselves.
 
 To reach him, remember what he feared most — the last secret you tore from his hands.
 
-And once you are inside his world... do not assume you see everything. GHOST never makes it that easy.
+And once you are inside his world... do not assume you see everything. Ghost never makes it that easy.
 
 The final blow is his. Unless you find it first."
 
+Look what GHOST who is AMONG US want you to find. Look back, look closely either in the picutre or here"
 
+**[answer_to_your_question](https://x509ghost.github.io/x509ghost-drop/declassified/GHOSTAMONGUS.jpg)**
 
 — ghost intelligence division
