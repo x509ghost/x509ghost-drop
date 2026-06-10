@@ -90,7 +90,7 @@ Check back. Pull often.
 - `/tasks/task-04` — ✅ available now
 - `/tasks/task-05` — ✅ available now
 - `/tasks/task-06` — ✅ available now
-- `/tasks/task-07` — 🔒 not yet
+- `/tasks/task-07` — ✅ available now - BUT YOU WILL NEVER SOLVE IT AND I AM COMING FOR YOUR LOCK MUAHAHAHAH
 
 Each task folder contains a `brief.md` with everything you need to begin.
 Read carefully. The instructions contain more than instructions.
