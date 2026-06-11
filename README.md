@@ -152,7 +152,7 @@ Decode it. Send your reports there.
 
 ## The clock
 
-⏳ [View the countdown](https://x509ghost.github.io/x509ghost-drop/countdown/muahaha.html)
+THE ATTACK HAS BEEN STOPPED!
 
 *June 11, 2026. 12:00:00 noon CEST.*
 *That is when patience ends.*
