@@ -18,7 +18,11 @@ This material was created solely for internal training and educational purposes.
 </details>
 
 
-# x509-drop test
+# NOOOOOO! YOU DID IT. YOU FOUND ME AND 
+# STOPED MY ATTACK. ALL RIGHT, YOU MAYBE 
+# WON THIS BATTLE BUT YOU HAVE NOT WIN THE 
+# WAR. I WILL BE BACK!!! 
+#  P.S GOOB JOB
 
 
 > *You found it. Good. That means you are paying attention.*
