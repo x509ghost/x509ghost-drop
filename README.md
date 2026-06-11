@@ -1,6 +1,12 @@
 <details>
 <summary>⚠️ DISCLAIMER — READ BEFORE CONTINUE</summary>
 
+  
+#NOOOOOO! YOU DID IT. YOU FOUND ME AND #STOPED MY ATTACK. ALL RIGHT, YOU MAYBE #WON THIS BATTLE BUT YOU HAVE NOT WIN THE #WAR. I WILL BE BACK!!! 
+# P.S GOOB JOB
+
+
+  
 This repository is part of the **organizational cybersecurity exercise**.
 All content, characters, threat actors, and scenarios described here are entirely fictional.
 No real attack is planned or underway against any Croatian website or infrastructure.
